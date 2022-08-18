@@ -2,7 +2,8 @@ import java.lang.Math;
 
 public class Mob {
     public String mob_ls[] = {
-
+        "Zombie",
+        ""
     };
     static int mob_wpn[] = {
 
