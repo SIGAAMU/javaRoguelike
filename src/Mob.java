@@ -3,7 +3,18 @@ import java.lang.Math;
 public class Mob {
     public String mob_ls[] = {
         "Zombie",
-        ""
+        "Vampire",
+        "Orc",
+        "Werewolf",
+        "Slime",
+        "Troll",
+        "Imp",
+        "Celestial being",
+        "Witch",
+        "Skeleton",
+        "Angry Farmer",
+        
+        
     };
     static String mob_wpn[] = {
 
