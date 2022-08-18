@@ -86,6 +86,7 @@ public class Mob {
         {
             if (mob_ls[i] == T_mobName)
             {
+                T_mobHP = mob_hp[i];
                 T_mobWpn = mob_wpn[i];
                 T_mobWpn_dmg = mob_dmg[i];
                 T_mobWpn_rng = mob_rng[i];
