@@ -38,7 +38,7 @@ public class Mob {
         4,
         15,
         12,
-        (float)0.5,
+        1,
         4,
         17,
         30,
