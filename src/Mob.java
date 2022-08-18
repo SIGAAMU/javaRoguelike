@@ -13,11 +13,19 @@ public class Mob {
         "Witch",
         "Skeleton",
         "Angry Farmer",
-        
-        
     };
     static String mob_wpn[] = {
-
+        "Bitch-Slap",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
     };
     static int mob_dmg[] = {
     
