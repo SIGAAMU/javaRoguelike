@@ -16,21 +16,36 @@ public class Mob {
     };
     static String mob_wpn[] = {
         "Bitch-Slap",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        "Blood drain",
+        "Angry Hulk Smash",
+        "Furry slash",
+        "Absorption attack",
+        "Three trolls from Clash Royale fury",
+        "Devilish smile",
+        "The Holy Grail(you should be dead)",
+        "Potion of poison(hol up is this minecraft?)",
+        "Arrow shot(how do you make this any better)",
+        "PITCH FORK ATTACK!",
     };
     static int mob_dmg[] = {
-    
+        20,
+        7,
+        10,
+        7,
+        4,
+        15,
+        12,
+        1,
+        4,
+        17,
+        30,
+                 
     };
     static int mob_rng[] = {
+        4,
+        4,
+        
+        
     
     };
     // the maximum possibilty a mob has of moving
