@@ -5,7 +5,7 @@ public class Mob {
         "Zombie",
         ""
     };
-    static int mob_wpn[] = {
+    static String mob_wpn[] = {
 
     };
     static int mob_dmg[] = {
