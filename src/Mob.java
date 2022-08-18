@@ -70,6 +70,7 @@ public class Mob {
     static static float T_mobY = 0.0f;
     static static float T_mobX = 0.0f;
     public static String T_mobName;
+    public static int T_mobHP;
     public static String T_mobWpn;
     public static int T_mobWpn_rng;
     public static int T_mobWpn_dmg;
