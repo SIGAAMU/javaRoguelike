@@ -27,6 +27,9 @@ public class Mob {
         "Arrow shot(how do you make this any better)",
         "PITCH FORK ATTACK!",
     };
+    static int mob_hp[] = {
+        
+    };
     static int mob_dmg[] = {
         20,
         7,
