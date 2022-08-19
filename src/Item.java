@@ -12,6 +12,8 @@ public class Item
         "Dagger",
         "Log",
         "PitchFork",
+        "The Bubonic Plague",
+            
         
         
     };
@@ -28,6 +30,7 @@ public class Item
         10,
         35,
         30,
+        20,
         
     };
     
@@ -43,6 +46,7 @@ public class Item
         2,
         6,
         5,
+        2,
         
     };
     
