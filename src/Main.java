@@ -24,11 +24,8 @@ public class Main
         {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
         {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
     };
+    static boolean gameStarted = false;
     static Character playr = new Character();
-    public void playr_door()
-    {
-        // function i will write later
-    }
     public void printScreen()
     {
         System.out.print("\033[H\033[2J");  
@@ -66,9 +63,23 @@ public class Main
     public static void main(String[] args)
     {
         boolean playr_alive = playr.playrAlive();
-        while (playr_alive)
+        while (playr_alive) // this is the entire game loop
         {
-            
+            Mob make = new Mob();
+            if (!make.mobSpawned)
+            {
+                make.spawnMob();
+            }
+            else {
+                if (!make.mobAlive)
+                {
+                    make.mobSpawned = false;
+                }
+                else {
+                    make.moveMob();
+                }
+            }
+            printScreen();
         };
     }
 };
