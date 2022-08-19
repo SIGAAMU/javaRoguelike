@@ -31,6 +31,21 @@ public class Item
         
     };
     
+    publiv int wpn_rng[] = {
+        4,
+        5,
+        12,
+        15,
+        3,
+        6,
+        5,
+        17,
+        2,
+        6,
+        5,
+        
+    };
+    
     public void pickupWpn()
     {
         Character playr = new Character();
