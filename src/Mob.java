@@ -148,12 +148,13 @@ public class Mob {
     public static int T_mobSpeed;
     public static boolean mobSpawned = false;
     // this series of functions only allows 1 mob at a time, but meh
-    public Mob()
-    {
-    }
     public boolean mobAlive()
     { boolean mobHP = T_mobHP > 0;
         return mobHP;
+    }
+    public void mobAtk()
+    {
+        
     }
     public void spawnMob(String mName)
     {
