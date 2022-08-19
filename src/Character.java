@@ -35,6 +35,7 @@ public class Character
         playr_hp -= dmg
         System.out.println("You take "+dmg+" damage!");
         System.out.println("You are now down to "+playr_hp+" health!");
+        return;
     }
     public boolean playr_collision(char wasd)
     { boolean c = false; // false by default, no collision by default
@@ -189,6 +190,7 @@ public class Character
     // really kinda static, but it shouldn't ever be accessed by any other class
     public void playr_combat()
     {
+        Mob fight = new Mob();
         String mobN = getMobName();
         fight.T_mobName = mobN;
         temp_mobName = mobN;
@@ -227,11 +229,17 @@ public class Character
             else if (combat == 'n')
             {
                 System.out.println("Ok Then...");
+                exitCombat = true;
                 map.printScreen();
             }
             else {
                 System.out.println("ERROR: Invalid Command");
-                map.printScreen();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         };
     }
