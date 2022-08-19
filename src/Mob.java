@@ -97,11 +97,32 @@ public class Mob {
     };
     // the required number to be rolled for a mob to move
     static float mobMove_required[] = {
+        27.5,
+        43.5,
+        21.25,
+        32.5,
+        11.5,
+        25.25,
         30.5,
+        8.5,
+        27.5,
+        35.5,
+        35.5,
 
     };
     // if monster moves, this is their speed
     static float mob_speed[] = {
+        10,
+        6,
+        3,
+        5,
+        2,
+        7,
+        6,
+        1,
+        4,
+        3,
+        15,  
     
     };
     static static float T_mobY = 0.0f;
