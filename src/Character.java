@@ -190,7 +190,6 @@ public class Character
     public void playr_combat()
     {
         String mobN = getMobName();
-        Mob fight = new Mob();
         fight.T_mobName = mobN;
         temp_mobName = mobN;
         temp_mobDmg = fight.T_mobWpn_dmg;
