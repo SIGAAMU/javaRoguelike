@@ -27,7 +27,7 @@ public class Mob {
         "Arrow shot(how do you make this any better)",
         "PITCH FORK ATTACK!",
     };
-    static int mob_hp[] = {
+    static int mob_hp[] = { // this array needs one more stat, only has 10 where there's 11 monsters
         60,
         70,
         65,
@@ -38,9 +38,6 @@ public class Mob {
         65,
         60,
         100,
-        
-        
-        
     };
     static int mob_dmg[] = {
         20,
@@ -54,7 +51,6 @@ public class Mob {
         4,
         17,
         30,
-                 
     };
     static int mob_rng[] = {
         3,
@@ -68,8 +64,6 @@ public class Mob {
         5,
         8,
         4,
-        
-        
     };
     // the maximum possibilty a mob has of moving
     static float mobMove_max[] = {
