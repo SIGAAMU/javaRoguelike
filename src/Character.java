@@ -12,7 +12,7 @@ public class Character
         "Sword", // primary
         "Dagger", // secondary
     };
-    public static float playr_hp = 100.0f;
+    public static int playr_hp = 100;
     public int playr_ac = 12;
     public float speed = 1.5f;
     public int playr_lvl = 1;
