@@ -31,7 +31,7 @@ public class Item
         
     };
     
-    publiv int wpn_rng[] = {
+    public int wpn_rng[] = {
         4,
         5,
         12,
