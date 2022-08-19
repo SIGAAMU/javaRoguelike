@@ -111,7 +111,7 @@ public class Mob {
 
     };
     // if monster moves, this is their speed
-    static float mob_speed[] = {
+    static int mob_speed[] = {
         10,
         6,
         3,
