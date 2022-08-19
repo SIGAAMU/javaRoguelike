@@ -162,19 +162,19 @@ public class Mob {
                     int randMove = (int)(Math.random()*(4-1+1)+1);
                     if (randMove == 1) // north/w
                     {
-                        T_mobY = - (1.0f * mob_speed[i]);
+                        T_mobY -= (1.0f * mob_speed[i]);
                     }
                     else if (randMove == 2) // west/a
                     {
-                        T_mobX = - (1.0f * mob_speed[i]);
+                        T_mobX -= (1.0f * mob_speed[i]);
                     }
                     else if (randMove == 3) // south/s
                     {
-                        T_mobY = + (1.0f * mob_speed[i]);
+                        T_mobY += (1.0f * mob_speed[i]);
                     }
                     else if (randMove == 4) // east/d
                     {
-                        T_mobX = + (1.0f * mob_speed[i]);
+                        T_mobX += (1.0f * mob_speed[i]);
                     }
                 }
             }
