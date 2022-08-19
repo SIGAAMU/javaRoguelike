@@ -197,6 +197,8 @@ public class Character
         temp_mobDmg = fight.T_mobWpn_dmg;
         temp_mobRng = fight.T_mobWpn_rng;
         boolean exitCombat = false;
+        boolean playr_turn = true;
+        boolean mob_turn = false;
         while (fight.T_mobHP > 0 || !exitCombat)
         {
             Scanner atk = new Scanner(System.in);
@@ -212,34 +214,41 @@ public class Character
                 System.out.print('\n');
             }
             System.out.print("\n\n");
-            System.out.println("Would You Like To Attack The "+mobN+"? [y/n]");
-            System.out.print(">");
-            char combat = atk.next().charAt(0);
-            if (combat == 'y')
+            if (playr_turn)
             {
-                System.out.println("<Weapons> (in inventory)");
-                for (int i = 0; i < playr_wpn.length; i++)
+                System.out.println("Would You Like To Attack The "+mobN+"? [y/n]");
+                System.out.print(">");
+                char combat = atk.next().charAt(0);
+                if (combat == 'y')
                 {
-                    System.out.println(i+") "+playr_wpn[i]);
+                    System.out.println("<Weapons> (in inventory)");
+                    for (int i = 0; i < playr_wpn.length; i++)
+                    {
+                        System.out.println(i+") "+playr_wpn[i]);
+                    }
+                    System.out.print("\nChoose An Attack >");
+                    int playr_atk = atk.nextInt();
+                    fight.mobTakeDmg(playr_wpn[playr_atk]);
                 }
-                System.out.print("\nChoose An Attack >");
-                int playr_atk = atk.nextInt();
-                fight.mobTakeDmg(playr_wpn[playr_atk]);
+                else if (combat == 'n')
+                {
+                    System.out.println("Ok Then...");
+                    exitCombat = true;
+                    map.printScreen();
+                }
+                else {
+                    System.out.println("ERROR: Invalid Command");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
             }
-            else if (combat == 'n')
+            else if (mob_turn)
             {
-                System.out.println("Ok Then...");
-                exitCombat = true;
-                map.printScreen();
-            }
-            else {
-                System.out.println("ERROR: Invalid Command");
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                
             }
         };
     }
