@@ -105,10 +105,6 @@ public class Character
                   break;
         };
     };
-    public int[] getDoorCoords(char wasd)
-    { int doorCoords[] = {0, 0};
-        doorCoords[0] = (int)
-    };
     public void playr_move(char wasd)
     {
         boolean cc = playr_collision(wasd);
@@ -122,7 +118,6 @@ public class Character
         else if (door)
         {
             Scanner useDoor = new Scanner(System.in);
-            int doorY[] = getDoorCoords(wasd);
             char doorOrgive_up = 'n';
             System.out.println("\nEnter o to open a door (direction based on your latest movement)");
             System.out.println("Enter n to not open the door");
@@ -132,7 +127,30 @@ public class Character
             case 'n': map.printScreen();
                       break;
             case 'o': System.out.println("You open the Door");
-                      map.dungeonMap
+                      if (wasd == 'w')
+                      {
+                          map.dungeonMap[(int)px][(int)py-2] = playr;
+                          py -= 2.0f;
+                      }
+                      else if (wasd == 'a')
+                      {
+                          map.dungeonMap[(int)px-2][(int)py] = playr;
+                          px -= 2.0f;
+                      }
+                      else if (wasd == 's')
+                      {
+                          map.dungeonMap[(int)px][(int)py+2] = playr;
+                          py += 2.0f;
+                      }
+                      else if (wasd == 'd')
+                      {
+                          map.dungeonMap[(int)px+2][(int)py] = playr;
+                          px += 2.0f;
+                      }
+                      break;
+            default: System.out.println("ERROR: Invalid Response");
+                     map.printScreen();
+                     break;
             };
         }
         else {
