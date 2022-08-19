@@ -30,9 +30,9 @@ public class Main
     {
         System.out.print("\033[H\033[2J");  
         System.out.flush();
-        for (int y = 0; y < 40; y++)
+        for (int y = 0; y < 20; y++)
         {
-            for (int x = 0; x < 20; x++)
+            for (int x = 0; x < 40; x++)
             {
                 System.out.print(dungeonMap[x][y]);
             }
