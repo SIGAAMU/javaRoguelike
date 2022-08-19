@@ -67,14 +67,37 @@ public class Mob {
     };
     // the maximum possibilty a mob has of moving
     static float mobMove_max[] = {
+        40.5,
+        53.2,
+        37.5,
+        47.3,
+        27.2,
+        39.5,
+        45.5,
+        15.5,
+        32.5,
+        43.5,
+        46.5,
 
     };
     // the minimum possibility a mob has of moving
     static float mobMove_min[] = {
+        20.5,
+        37.5,
+        17.5,
+        30.5,
+        10.5,
+        20.3,
+        22.25,
+        5.5,
+        17.25,
+        21.35,
+        27.35,
 
     };
     // the required number to be rolled for a mob to move
     static float mobMove_required[] = {
+        30.5,
 
     };
     // if monster moves, this is their speed
