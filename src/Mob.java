@@ -152,6 +152,13 @@ public class Mob {
     { boolean mobHP = T_mobHP > 0;
         return mobHP;
     }
+  /*  public boolean mobCollision(int direction)
+    { boolean c = false;
+        switch (c) {
+        case 1: if ()
+        case 2:        
+        };
+    }*/
     public void mobTakeDmg(String wpn)
     {
         Item dmg = new Item();
@@ -216,24 +223,32 @@ public class Mob {
                 if (moveBool >= mobMove_required[i])
                 {
                     int randMove = (int)(Math.random()*(4-1+1)+1);
-                    if (randMove == 1) // north/w
+                    boolean mb = mobCollision(randMove);
+                    boolean collided = mb == true;
+                    if (!collided)
                     {
-                        T_mobY -= (1.0f * (float)mob_speed[i]);
+                        if (randMove == 1) // north/w
+                        {
+                            T_mobY -= (1.0f * (float)mob_speed[i]);
+                        }
+                        else if (randMove == 2) // west/a
+                        {
+                            T_mobX -= (1.0f * (float)mob_speed[i]);
+                        }
+                        else if (randMove == 3) // south/s
+                        {
+                            T_mobY += (1.0f * (float)mob_speed[i]);
+                        }
+                        else if (randMove == 4) // east/d
+                        {
+                            T_mobX += (1.0f * (float)mob_speed[i]);
+                        }
+                        Main map = new Main();
+                        map.dungeonMap[(int)px][(int)py] = T_mobChar;
                     }
-                    else if (randMove == 2) // west/a
-                    {
-                        T_mobX -= (1.0f * (float)mob_speed[i]);
+                    else {
+                        return;
                     }
-                    else if (randMove == 3) // south/s
-                    {
-                        T_mobY += (1.0f * (float)mob_speed[i]);
-                    }
-                    else if (randMove == 4) // east/d
-                    {
-                        T_mobX += (1.0f * (float)mob_speed[i]);
-                    }
-                    Main map = new Main();
-                    map.dungeonMap[(int)px][(int)py] = T_mobChar;
                 }
             }
         }
