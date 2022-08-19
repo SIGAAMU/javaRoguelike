@@ -30,6 +30,12 @@ public class Character
     { boolean alive = playr_hp > 0;
         return alive;
     };
+    public void playrTakeDmg(int dmg)
+    {
+        playr_hp -= dmg
+        System.out.println("You take "+dmg+" damage!");
+        System.out.println("You are now down to "+playr_hp+" health!");
+    }
     public boolean playr_collision(char wasd)
     { boolean c = false; // false by default, no collision by default
         switch (wasd) {
