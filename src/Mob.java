@@ -125,18 +125,60 @@ public class Mob {
         15,  
     
     };
-    static static float T_mobY = 0.0f;
-    static static float T_mobX = 0.0f;
+    static char mobChar[] = {
+        'Z',
+        'V',
+        'W',
+        'I',
+        'T',
+        'C',
+        'H',
+        'K',
+        'A',
+    };
+
+    public static float T_mobY = 0.0f;
+    public static float T_mobX = 0.0f;
     public static String T_mobName;
     public static int T_mobHP;
     public static String T_mobWpn;
     public static int T_mobWpn_rng;
     public static int T_mobWpn_dmg;
+    public static int T_mobChar;
+    public static int T_mobSpeed;
+    public static boolean mobSpawned = false;
     // this series of functions only allows 1 mob at a time, but meh
-    public void Mob(String mobName)
+    public Mob()
     {
-        T_mobName = mobName;
-        getMob_stat();
+    }
+    public boolean mobAlive()
+    { boolean mobHP = T_mobHP > 0;
+        return mobHP;
+    }
+    public void spawnMob(String mName)
+    {
+        Main map = new Main();
+        mobSpawned = true;
+        for (int y = 0; y < 20; y++)
+        {
+            for (int x = 0; x < 40; x++)
+            {
+                if (map.dungeonMap[x][y] != '#' || map.dungeonMap[x][y] != '.' || map.dungeonMap != '$' || map.dungeonMap[x][y] != '@')
+                {
+                    int randMob = (int)(Math.random()*(10-0)+0);
+                    map.dungeonMap[x][y] = mobChar[randMob];
+                    T_mobChar = mobChar[randMob];
+                    T_mobY = (float)y;
+                    T_mobX = (float)x;
+                    T_mobName = mob_ls[randMob];
+                    T_mobHP = mob_hp[randMob];
+                    T_mobSpeed = mob_speed[randMob];
+                    T_mobWpn = mob_wpn[randMob];
+                    T_mobWpn_dmg = mob_dmg[randMob];
+                    T_mobWpn_rng = mob_rng[randMob];
+                }
+            }
+        }
     }
     public void getMob_stat()
     {
@@ -162,20 +204,22 @@ public class Mob {
                     int randMove = (int)(Math.random()*(4-1+1)+1);
                     if (randMove == 1) // north/w
                     {
-                        T_mobY -= (1.0f * mob_speed[i]);
+                        T_mobY -= (1.0f * (float)mob_speed[i]);
                     }
                     else if (randMove == 2) // west/a
                     {
-                        T_mobX -= (1.0f * mob_speed[i]);
+                        T_mobX -= (1.0f * (float)mob_speed[i]);
                     }
                     else if (randMove == 3) // south/s
                     {
-                        T_mobY += (1.0f * mob_speed[i]);
+                        T_mobY += (1.0f * (float)mob_speed[i]);
                     }
                     else if (randMove == 4) // east/d
                     {
-                        T_mobX += (1.0f * mob_speed[i]);
+                        T_mobX += (1.0f * (float)mob_speed[i]);
                     }
+                    Main map = new Main();
+                    map.dungeonMap[(int)px][(int)py] = T_mobChar;
                 }
             }
         }
