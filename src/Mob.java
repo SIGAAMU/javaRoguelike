@@ -28,6 +28,18 @@ public class Mob {
         "PITCH FORK ATTACK!",
     };
     static int mob_hp[] = {
+        60,
+        70,
+        65,
+        70,
+        40,
+        55,
+        25,
+        65,
+        60,
+        100,
+        
+        
         
     };
     static int mob_dmg[] = {
@@ -45,11 +57,19 @@ public class Mob {
                  
     };
     static int mob_rng[] = {
+        3,
+        3,
         4,
+        2,
+        1,
+        2,
+        1,
+        1,
+        5,
+        8,
         4,
         
         
-    
     };
     // the maximum possibilty a mob has of moving
     static float mobMove_max[] = {
@@ -86,7 +106,6 @@ public class Mob {
         {
             if (mob_ls[i] == T_mobName)
             {
-                T_mobHP = mob_hp[i];
                 T_mobWpn = mob_wpn[i];
                 T_mobWpn_dmg = mob_dmg[i];
                 T_mobWpn_rng = mob_rng[i];
