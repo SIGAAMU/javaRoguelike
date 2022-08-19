@@ -25,17 +25,15 @@ public class Character
     static String temp_mobWpn;
     static int temp_mobDmg;
     static int temp_mobRng;
+    
+    public boolean playrAlive()
     { boolean alive = playr_hp > 0;
         return alive;
-    }
+    };
     public boolean playr_collision(char wasd)
     { boolean c = false; // false by default, no collision by default
         switch (wasd) {
         case 'w': if (map.dungeonMap[(int)px][(int)py-1] == '#')
-                  {
-                      c = true;
-                  }
-                  else if (map.dungeonMap[(int)px][(int)py-1] == '$')
                   {
                       c = true;
                   }
@@ -47,19 +45,11 @@ public class Character
                   {
                       c = true;
                   }
-                  else if (map.dungeonMap[(int)px-1][(int)py-1] == '$')
-                  {
-                      c = true;
-                  }
                   else {
                       c = false;
                   }
                   break;
         case 's': if (map.dungeonMap[(int)px][(int)py+1] == '#')
-                  {
-                      c = true;
-                  }
-                  else if (map.dungeonMap[(int)px][(int)py+1] == '$')
                   {
                       c = true;
                   }
@@ -71,10 +61,6 @@ public class Character
                   {
                       c = true;
                   }
-                  else if (map.dungeonMap[(int)px+1][(int)py] == '$')
-                  {
-                      c = true;
-                  }
                   else {
                       c = false;
                   }
@@ -82,13 +68,72 @@ public class Character
         };
         return c;
     }
+    public boolean playr_door(char wasd)
+    { boolean d = false;
+        switch (wasd) {
+        case 'w': if (map.dungeonMap[(int)px][(int)py+1] == '$')
+                  {
+                      d = true;
+                  }
+                  else {
+                      d = false;
+                  }
+                  break;
+        case 'a': if (map.dungeonMap[(int)px-1][(int)py] == '$')
+                  {
+                      d = true;
+                  }
+                  else {
+                      d = false;
+                  }
+                  break;
+        case 's': if (map.dungeonMap[(int)px][(int)py+1] == '$')
+                  {
+                      d = true;
+                  }
+                  else {
+                      d = false;
+                  }
+                  break;
+        case 'd': if (map.dungeonMap[(int)px+1][(int)py] == '$')
+                  {
+                      d = true;
+                  }
+                  else {
+                      d = false;
+                  }
+                  break;
+        };
+    };
+    public int[] getDoorCoords(char wasd)
+    { int doorCoords[] = {0, 0};
+        doorCoords[0] = (int)
+    };
     public void playr_move(char wasd)
     {
         boolean cc = playr_collision(wasd);
         boolean collision_true = cc == true;
+        boolean dc = playr_door(wasd);
+        boolean door = dc == true;
         if (collision_true)
         {
             return;
+        }
+        else if (door)
+        {
+            Scanner useDoor = new Scanner(System.in);
+            int doorY[] = getDoorCoords(wasd);
+            char doorOrgive_up = 'n';
+            System.out.println("\nEnter o to open a door (direction based on your latest movement)");
+            System.out.println("Enter n to not open the door");
+            System.out.print("What Would You Like To Do? >");
+            doorOrgive_up = useDoor.next().charAt(0);
+            switch (doorOrgive_up) {
+            case 'n': map.printScreen();
+                      break;
+            case 'o': System.out.println("You open the Door");
+                      map.dungeonMap
+            };
         }
         else {
             if (wasd == 'w')
@@ -126,9 +171,10 @@ public class Character
         temp_mobName = mobN;
         temp_mobDmg = fight.T_mobWpn_dmg;
         temp_mobRng = fight.T_mobWpn_rng;
-        boolean exitCombat;
-        while (fight.T_mobHP > 0 ||)
+        boolean exitCombat = false;
+        while (fight.T_mobHP > 0 || !exitCombat)
         {
+            Scanner atk = new Scanner(System.in);
             System.out.print("\033[H\033[2J");  
             System.out.flush();
             Main map = new Main();
@@ -141,15 +187,29 @@ public class Character
                 System.out.print('\n');
             }
             System.out.print("\n\n");
-            System.out.println("<Weapons> (in inventory)");
-            for (int i = 0; i < playr_wpn.length; i++)
+            System.out.println("Would You Like To Attack The "+mobN+"? [y/n]");
+            System.out.print(">");
+            char combat = atk.next().charAt(0);
+            if (combat == 'y')
             {
-                System.out.println(i+") "+playr_wpn[i]);
+                System.out.println("<Weapons> (in inventory)");
+                for (int i = 0; i < playr_wpn.length; i++)
+                {
+                    System.out.println(i+") "+playr_wpn[i]);
+                }
+                System.out.print("\nChoose An Attack >");
+                int playr_atk = atk.nextInt();
+                fight.mobTakeDmg(playr_wpn[playr_atk]);
             }
-            System.out.print("\nChoose An Attack >");
-            Scanner atk = new Scanner(System.in);
-            int playr_atk = atk.nextInt();
-            fight.mobTakeDmg(playr_wpn[playr_atk]);
+            else if (combat == 'n')
+            {
+                System.out.println("Ok Then...");
+                map.printScreen();
+            }
+            else {
+                System.out.println("ERROR: Invalid Command");
+                map.printScreen();
+            }
         };
     }
     public void cmd_prompt()
