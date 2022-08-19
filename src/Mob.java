@@ -152,9 +152,22 @@ public class Mob {
     { boolean mobHP = T_mobHP > 0;
         return mobHP;
     }
+    public void mobTakeDmg(String wpn)
+    {
+        Item dmg = new Item();
+        for (int i = 0; i < dmg.wpn_ls.length; i++)
+        {
+            if (dmg.wpn_ls[i] == wpn)
+            {
+                T_mobHP -= dmg.wpn_dmg[i];
+            }
+        }
+    }
     public void mobAtk()
     {
-        
+        Character dmg = new Character();
+        dmg.playr_hp -= T_mobWpn_dmg;
+        return;
     }
     public void spawnMob(String mName)
     {
