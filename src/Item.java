@@ -2,6 +2,8 @@ public class Item
 {
     public String wpn_ls[] = {
         "Sword",
+        "Mace",
+        "Bow",
     };
     
     public void pickupWpn()
